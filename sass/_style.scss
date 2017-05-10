@@ -22,6 +22,15 @@
   z-index: 10;
 }
 
+.extended{
+  padding-top: 1.5rem;
+  transition: padding 1s;
+}
+.extended-top{
+  padding-top: 1rem;
+}
+
+
 .logo{
   font-family: 'Pacifico', cursive;
   font-size: 3rem;
@@ -97,17 +106,37 @@ nav{
       display: inline-block;
       margin: 0.5rem;
       align-self: center;
+
     };
+
   }
 }
-.menu>li:hover{
-  text-decoration: underline;
-  text-decoration-color: orange;
+
+a:link{
+  text-decoration: none;
+  color: black;
+}
+a:visited{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
   @include desk{
+    padding-bottom: 0.3rem;
     box-shadow:inset  0 0px 0 white, inset 0 -3px 0 orange;
   };
 }
+a:active{
+  text-decoration: none;
+}
 
+.underline{
+    box-shadow:inset  0 0px 0 white, inset 0 -2px 0 orange;
+    @include desl{
+      padding-bottom: 0.3rem;
+    };
+
+}
 .hidden_menu{
   display: none;
   @include desk{
@@ -178,9 +207,10 @@ nav{
     display: flex;
     align-self: center;
     position: absolute;
-    bottom: 2vh;
+    bottom: 1rem;
     display: flex;
     justify-content: center;
+
     .scroll{
       width: 0.1rem;
       height: 0.3rem;
@@ -650,25 +680,55 @@ button:hover{
   background-image: url("../img/bg-bottom.png");
   display: flex;
   flex-wrap: wrap;
+  @include desk{
+    background-position: 50% 50%;
+  };
   article{
     text-align: center;
     padding-bottom: 1rem;
+    @include desk{
+      width: 100%;
+    };
     h1{
       font-size: 4rem;
       font-weight: 500;
+      @include desk{
+        font-size: 6rem;
+        font-weight: 600;
+      };
     }
   }
   .address{
     width:100%;
+    @include desk{
+      order: 2;
+      width: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+    };
     h2{
       font-size: 1.4rem;
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
     }
+    h2,p{
+      @include desk{
+        width: 40%;
+      };
+    }
   }
   form{
     margin-top: 1rem;
     width: 100%;
+    @include desk{
+      order: 1;
+      width: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    };
     input, textarea{
       width: 100%;
       margin-bottom: 1rem;
@@ -677,9 +737,39 @@ button:hover{
       border: none;
       background-color: #00c4c3;
       opacity: 0.7;
+      @include desk{
+        width: 70%;
+
+      };
     }
     textarea{
       height: 30vh;
     }
+  }
+}
+
+#footer{
+  height: 8rem;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  @include desk{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  };
+  h6{
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: #666;
+    font-weight: 400;
+  }
+  span{
+    color: red;
   }
 }
